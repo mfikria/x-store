@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  json-server:
+    image: vimagick/json-server
+    command: -H 0.0.0.0 -p 3000 -w db.json
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./data:/data
+    restart: always
+  app:
+    container_name: x_store
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - json-server
