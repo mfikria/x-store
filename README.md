@@ -20,6 +20,12 @@ json-server --watch data/db.js --port 3001
 docker-compose -f docker-compose.dev.yml up
 ```
 
+## Testing
+Test suite can be found in /cypress/component
+```bash
+npx cypress open-ct
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deploy on Vercel
