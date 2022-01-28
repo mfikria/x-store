@@ -7,6 +7,10 @@ First, run the development server:
 yarn
 yarn dev
 ```
+Run JSON-Server  locally:
+```bash
+json-server --watch data/db.js --port 3001
+```
 
 ### Docker
 ```bash

@@ -1,4 +1,4 @@
-import { Descriptions, Layout, Table, Typography, Tag, Tabs, Breadcrumb } from 'antd'
+import { Descriptions, Layout, Table, Typography, Tag, Tabs, Breadcrumb, Select, DatePicker, Input } from 'antd'
 import { useSelector } from 'react-redux';
 import moment from 'moment'
 
@@ -49,6 +49,18 @@ const OrderList = () => {
 
           <Tabs defaultActiveKey="1">
             <Tabs.TabPane tab="Active Orders" key="1">
+              <div className="mb-4">
+                <span className="mr-4">
+                  <Select  defaultValue="name" style={{ width: 120 }}>
+                    <Select.Option value="name">Name</Select.Option>
+                    <Select.Option value="dueDate">Due Date</Select.Option>
+                  </Select>
+                </span>
+                <span className="mr-4">
+                  <DatePicker.RangePicker  />
+                </span>
+                <Input.Search placeholder="search..." allowClear style={{ width: 400 }} />
+              </div>
               <Table
                 rowKey={record => record.id}
                 style={{ minWidth: '600px' }}

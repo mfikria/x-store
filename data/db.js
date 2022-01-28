@@ -57,7 +57,10 @@ module.exports = () => ({
       dueDate: '2022-01-28T07:09:58.055Z',
       paymentMethod: 'CREDIT_CARD',
       paymentProvider: 'BCA',
-      products,
+      products: products.map((product) => ({
+        quantity: 1,
+        product
+      })),
       customer,
       deliveryFee: 20000,
       discount: 10000,
