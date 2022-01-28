@@ -39,7 +39,7 @@ const OrderList = () => {
   return (
     <Layout>
       <Layout.Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-        <div style={{ padding: 24, minHeight: 380 }}>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <div className="mb-8">
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>Orders</Breadcrumb.Item>
