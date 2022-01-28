@@ -28,28 +28,28 @@ const OrderDetail: NextPage = () => {
     },
   ];
 
-  const dataSource = order.products.map(({ quantity, product }) => ({ quantity, ...product })).concat([
+  const dataSource = order?.products?.map(({ quantity, product }) => ({ quantity, ...product })).concat([
     { quantity: 'Subtotal', price: 'Rp 900.000' },
     { quantity: 'Delivery Fee', price: 'Rp 100.000' },
     { quantity: 'Discount', price: '-Rp 100.000' },
     { quantity: 'Total Amount Due', price: 'Rp 900.000' },
-  ])
+  ]) || []
 
   return (
     <Layout>
       <Layout.Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <div className="mb-8">
-            <Typography.Title>Order Overview</Typography.Title>
+            <Typography.Title data-testid="title">Order Overview</Typography.Title>
             <Typography.Text> Order created: 08/09/2021, 19:00</Typography.Text>
           </div>
 
           <Descriptions title="Customer Details" column={1}>
-            <Descriptions.Item label="Name">{order.customer.name.firstname}</Descriptions.Item>
-            <Descriptions.Item label="Telephone">{order.customer.phone}</Descriptions.Item>
-            <Descriptions.Item label="Email Address">{order.customer.email}</Descriptions.Item>
+            <Descriptions.Item label="Name">{order?.customer?.name?.firstname}</Descriptions.Item>
+            <Descriptions.Item label="Telephone">{order?.customer?.phone}</Descriptions.Item>
+            <Descriptions.Item label="Email Address">{order?.customer?.email}</Descriptions.Item>
             <Descriptions.Item label="Address">
-              {order.customer.address.street}, {order.customer.address.number}, {order.customer.address.city}, {order.customer.address.zipcode}
+              {order?.customer?.address?.street}, {order?.customer?.address?.number}, {order?.customer?.address?.city}, {order?.customer?.address?.zipcode}
             </Descriptions.Item>
           </Descriptions>
 
@@ -61,13 +61,13 @@ const OrderDetail: NextPage = () => {
           />
 
           <Descriptions className="mt-8" title="Logistic Details" column={1}>
-            <Descriptions.Item label="Delivery Status">{order.logistic.deliveryStatus}</Descriptions.Item>
+            <Descriptions.Item label="Delivery Status">{order?.logistic?.deliveryStatus}</Descriptions.Item>
             <Descriptions.Item label="Recipient's Address">
-              {order.logistic.recipientAddress.street}, {order.logistic.recipientAddress.number}, {order.logistic.recipientAddress.city}, {order.logistic.recipientAddress.zipcode}
+              {order?.logistic?.recipientAddress?.street}, {order?.logistic?.recipientAddress?.number}, {order?.logistic?.recipientAddress?.city}, {order?.logistic?.recipientAddress?.zipcode}
             </Descriptions.Item>
-            <Descriptions.Item label="Delivery Provider">{order.logistic.deliveryProvider}</Descriptions.Item>
-            <Descriptions.Item label="Weight">{order.logistic.weight}</Descriptions.Item>
-            <Descriptions.Item label="Notes">{order.logistic.notes}</Descriptions.Item>
+            <Descriptions.Item label="Delivery Provider">{order?.logistic?.deliveryProvider}</Descriptions.Item>
+            <Descriptions.Item label="Weight">{order?.logistic?.weight}</Descriptions.Item>
+            <Descriptions.Item label="Notes">{order?.logistic?.notes}</Descriptions.Item>
           </Descriptions>
         </div>
       </Layout.Content>
