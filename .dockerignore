@@ -1,6 +1,2 @@
-node_modules
-*.log
-.git
-.idea
 .next
-npm-debug.log*
+node_modules/
